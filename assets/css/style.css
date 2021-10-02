@@ -1,0 +1,9 @@
+/* General framework for paper layout set. Font family set with Google Fonts*/
+* {
+    font-family: 'Public Sans', sans-serif;
+}
+
+/* Default font-size set */
+html {
+    font-size: 62.5%;
+    }
