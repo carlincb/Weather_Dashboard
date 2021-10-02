@@ -53,12 +53,12 @@ function renderForecastWeather(weatherData){
     var windForecast = document.createElement("p");
     var humidityForecast = document.createElement("p");
 
-    tempForecast.innerText = `${weatherData.daily[i].temp}`;
+    tempForecast.innerText = `${weatherData.temp}`;
     currentWeather.append(tempForecast);
 
-    windForecast.innerText = `${weatherData.daily[i].wind_speed}`;
+    windForecast.innerText = `${weatherData.wind_speed}`;
     currentWeather.append(windForecast);
 
-    humidityForecast.innerText = `${weatherData.daily[i].humidity}`;
+    humidityForecast.innerText = `${weatherData.humidity}`;
     currentWeather.append(humidityForecast);
 };
