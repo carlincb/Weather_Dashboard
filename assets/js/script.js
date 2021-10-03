@@ -49,16 +49,68 @@ function renderCurrentWeather(weatherData){
 };
 
 function renderForecastWeather(weatherData){
-    var tempForecast = document.createElement("p");
-    var windForecast = document.createElement("p");
-    var humidityForecast = document.createElement("p");
+    var tempForecastA = document.createElement("p");
+    var windForecastA = document.createElement("p");
+    var humidityForecastA = document.createElement("p");
 
-    tempForecast.innerText = `${weatherData.temp}`;
-    currentWeather.append(tempForecast);
+    tempForecastA.innerText = `${weatherData.daily[0].temp.day}`;
+    currentWeather.append(tempForecastA);
 
-    windForecast.innerText = `${weatherData.wind_speed}`;
-    currentWeather.append(windForecast);
+    windForecastA.innerText = `${weatherData.daily[0].wind_speed}`;
+    currentWeather.append(windForecastA);
 
-    humidityForecast.innerText = `${weatherData.humidity}`;
-    currentWeather.append(humidityForecast);
+    humidityForecastA.innerText = `${weatherData.daily[0].humidity}`;
+    currentWeather.append(humidityForecastA);
+// -------------------------------------------------------------------
+    var tempForecastB = document.createElement("p");
+    var windForecastB = document.createElement("p");
+    var humidityForecastB = document.createElement("p");
+
+    tempForecastB.innerText = `${weatherData.daily[1].temp.day}`;
+    currentWeather.append(tempForecastB);
+
+    windForecastB.innerText = `${weatherData.daily[1].wind_speed}`;
+    currentWeather.append(windForecastB);
+
+    humidityForecastB.innerText = `${weatherData.daily[1].humidity}`;
+    currentWeather.append(humidityForecastB);
+// -------------------------------------------------------------------
+    var tempForecastC = document.createElement("p");
+    var windForecastC = document.createElement("p");
+    var humidityForecastC = document.createElement("p");
+
+    tempForecastC.innerText = `${weatherData.daily[2].temp.day}`;
+    currentWeather.append(tempForecastC);
+
+    windForecastC.innerText = `${weatherData.daily[2].wind_speed}`;
+    currentWeather.append(windForecastC);
+
+    humidityForecastC.innerText = `${weatherData.daily[2].humidity}`;
+    currentWeather.append(humidityForecastC);
+// -------------------------------------------------------------------
+    var tempForecastD = document.createElement("p");
+    var windForecastD = document.createElement("p");
+    var humidityForecastD = document.createElement("p");
+
+    tempForecastD.innerText = `${weatherData.daily[3].temp.day}`;
+    currentWeather.append(tempForecastD);
+
+    windForecastD.innerText = `${weatherData.daily[3].wind_speed}`;
+    currentWeather.append(windForecastD);
+
+    humidityForecastD.innerText = `${weatherData.daily[3].humidity}`;
+    currentWeather.append(humidityForecastD);
+// -------------------------------------------------------------------
+    var tempForecastE = document.createElement("p");
+    var windForecastE = document.createElement("p");
+    var humidityForecastE = document.createElement("p");
+
+    tempForecastE.innerText = `${weatherData.daily[4].temp.day}`;
+    currentWeather.append(tempForecastE);
+
+    windForecastE.innerText = `${weatherData.daily[4].wind_speed}`;
+    currentWeather.append(windForecastE);
+
+    humidityForecastE.innerText = `${weatherData.daily[4].humidity}`;
+    currentWeather.append(humidityForecastE);
 };
