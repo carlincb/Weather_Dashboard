@@ -1,8 +1,10 @@
 var APIKey = "9bd5c8436dd36e9efcab1ac13d881673";
 
 var recentSearches = JSON.parse(localStorage.getItem("recents")) || [];
+var recentCities = document.getElementById("recentCities");
 
 var currentCity;
+
 var currentWeather = document.getElementById("currentWeather");
 var fiveDayForecast = document.getElementById("fiveDayForecast");
 
@@ -14,6 +16,7 @@ searchBtn.addEventListener("click", function(event){
     
     recentSearches.unshift(searchText.value);
     localStorage.setItem("recents", JSON.stringify(recentSearches));
+    recentCities.append(recentSearches);
 // section html for recent searches, for every item in recent searches append p tag with item from recent searches.
     var currentURL = `https://api.openweathermap.org/data/2.5/weather?q=${searchText.value}&appid=${APIKey}&units=imperial`;
 
@@ -62,11 +65,11 @@ function renderCurrentWeather(weatherData){
     currentWeather.append(uvi);
 
     if (weatherData.current.uvi < 3){
-        uvi.classList += "bg-success";
+        uvi.classList += "bg-success col-2 m-2 p-2 rounded";
     } else if( weatherData.current.uvi >= 3 && weatherData.current.uvi < 6){
-        uvi.classList += "bg-info";
+        uvi.classList += "bg-info col-2 m-2 p-2 rounded";
     } else {
-        uvi.classList += "bg-danger";
+        uvi.classList += "bg-danger col-2 m-2 p-2 rounded";
     }
 };
 
@@ -75,7 +78,7 @@ function renderForecastWeather(weatherData){
     var tempForecast = document.createElement("p");
     var windForecast = document.createElement("p");
     var humidityForecast = document.createElement("p");
-    var futureDate = document.createElement("p");
+    var futureDate = document.createElement("h2");
     var icon = document.createElement("img");
 
     icon.setAttribute("src", `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`);
@@ -130,5 +133,4 @@ function convertDT (timestamp){
   var convdataTime = month + "-" + day + "-" + year;
   // +' '+hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
   return convdataTime;
-
 };

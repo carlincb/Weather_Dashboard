@@ -23,16 +23,16 @@
     </header>
     <main class="container-fluid">
         <div class="row">
-            <aside class="row justify-content-md-start">
+            <aside class="col-md-3">
                 <h2>Search for a City: </h2>
                 <form id="searchForm">
                     <input type="text" id="searchText"/>
                     <button class="btn btn-primary" id="searchBtn">Search</button>
                 </form>
-                <section id="cities"></section>
+                <section id="recentCities"></section>
             </aside>
-            <section id="currentWeather"  class="border border-primary border-3 row justify-content-md-end"></section>
-            <section id="fiveDayForecast"  class="border border-primary border-3 row justify-content-md-end">
+            <section id="currentWeather"  class="border border-primary border-3 col-md-9"></section>
+            <section id="fiveDayForecast"  class="border border-primary border-3 col-md-9">
                 <h1>5-Day Forecast: </h1>
             </section>
         </div>
