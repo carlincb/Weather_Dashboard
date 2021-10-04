@@ -60,6 +60,14 @@ function renderCurrentWeather(weatherData){
 
     uvi.innerText = `UV Index: ${weatherData.current.uvi}`;
     currentWeather.append(uvi);
+
+    if (weatherData.current.uvi < 3){
+        uvi.classList += "bg-success";
+    } else if( weatherData.current.uvi >= 3 && weatherData.current.uvi < 6){
+        uvi.classList += "bg-info";
+    } else {
+        uvi.classList += "bg-danger";
+    }
 };
 
 function renderForecastWeather(weatherData){
@@ -88,7 +96,7 @@ function renderForecastWeather(weatherData){
     forecastCardDiv.classList = "bg-success m-2 p-2 rounded";
     fiveDayForecast.append(forecastCardDiv);
 };
-// if uvi>3 classList+="red bg-danger" blue bg-primary green bg-success yellow bg-info else
+
 function convertDT (timestamp){
     // Months array
   var months_arr = [
