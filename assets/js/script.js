@@ -1,5 +1,4 @@
 var APIKey = "9bd5c8436dd36e9efcab1ac13d881673";
-var searchContainer = document.querySelector("#searchContainer");
 
 var recentSearches = JSON.parse(localStorage.getItem("recents")) || [];
 var recentCities = document.getElementById("recentCities");
@@ -10,11 +9,9 @@ var currentWeather = document.getElementById("currentWeather");
 var fiveDayForecast = document.getElementById("fiveDayForecast");
 
 var searchText = document.getElementById("searchText");
+var searchBtn = document.getElementById("searchBtn");
 
-searchContainer.addEventListener("click", function(event) {
-    if (event.target.classList.contains("searchButton")){
-        return(event.target.innerHTML);
-    }
+searchBtn.addEventListener("click", function(event){
     event.preventDefault();
     recentCities.innerHTML = "";
 
@@ -27,7 +24,6 @@ searchContainer.addEventListener("click", function(event) {
         var citiesList = document.createElement("button")
         citiesList.innerText = `${element}`;
         citiesList.classList = "btn col-md-12 btn-secondary p-2 m-1 fs-5";
-        citiesList.classList.add("searchButton");
         recentCities.append(citiesList);
     });
 
