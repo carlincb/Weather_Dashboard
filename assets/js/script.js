@@ -13,10 +13,15 @@ var searchBtn = document.getElementById("searchBtn");
 
 searchBtn.addEventListener("click", function(event){
     event.preventDefault();
-    
+    console.log(recentSearches);
     recentSearches.unshift(searchText.value);
     localStorage.setItem("recents", JSON.stringify(recentSearches));
-    recentCities.append(recentSearches);
+    recentSearches.forEach(function(element) {
+        var citiesList = document.createElement("button", "li")
+        citiesList.innerText = `${recentSearches}`;
+        recentCities.append(citiesList);
+    });
+
 // section html for recent searches, for every item in recent searches append p tag with item from recent searches.
     var currentURL = `https://api.openweathermap.org/data/2.5/weather?q=${searchText.value}&appid=${APIKey}&units=imperial`;
 
