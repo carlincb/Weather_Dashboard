@@ -23,7 +23,7 @@ searchBtn.addEventListener("click", function(event){
     recentSearches.forEach(function(element) {
         var citiesList = document.createElement("button")
         citiesList.innerText = `${element}`;
-        citiesList.classList = "btn col-md-12 btn-secondary p-2 m-1";
+        citiesList.classList = "btn col-md-12 btn-secondary p-2 m-1 fs-5";
         recentCities.append(citiesList);
     });
 
@@ -74,14 +74,15 @@ function renderCurrentWeather(weatherData){
     currentWeather.append(humidity);
 
     uvi.innerText = `UV Index: ${weatherData.current.uvi}`;
+    currentWeather.classList = "fs-5 border border-dark border-1 rounded ms-3 mt-1"
     currentWeather.append(uvi);
 
     if (weatherData.current.uvi < 3){
-        uvi.classList += "bg-success col-2 m-2 p-2 rounded";
+        uvi.classList += "bg-success col-2 rounded fs-5";
     } else if( weatherData.current.uvi >= 3 && weatherData.current.uvi < 6){
-        uvi.classList += "bg-info col-2 m-2 p-2 rounded";
+        uvi.classList += "bg-info col-2 rounded fs-5";
     } else {
-        uvi.classList += "bg-danger col-2 m-2 p-2 rounded";
+        uvi.classList += "bg-danger col-2 rounded fs-5";
     }
 };
 
@@ -108,7 +109,7 @@ function renderForecastWeather(weatherData){
     humidityForecast.innerText = `Humidity: ${weatherData.humidity} %`;
     forecastCardDiv.append(humidityForecast);
 
-    forecastCardDiv.classList = "bg-dark text-light m-2 p-2 rounded w-auto";
+    forecastCardDiv.classList = "bg-dark text-light m-2 p-2 rounded w-auto fs-5";
     fiveDayForecast.append(forecastCardDiv);
 };
 
