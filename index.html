@@ -23,20 +23,22 @@
     </header>
     <main class="container-fluid">
         <div class="row">
-            <aside class="col-md-3">
-                <h2>Search for a City: </h2>
-                <form id="searchForm">
-                    <input type="text" id="searchText"/>
-                    <button class="btn btn-primary" id="searchBtn">Search</button>
+            <aside class="col-md-3 mh-100 justify-content-center ms-2">
+                <h2 class="ms-1">Search for a City: </h2>
+                <form id="searchForm" class="row border-bottom border-dark border-1">
+                    <input type="text" id="searchText" class="col-md-12 p-2 w-95"/>
+                    <button class="btn btn-primary col-md-12 p-2 mb-2 mt-1 w-95" id="searchBtn">Search</button>
                 </form>
                 <section>
-                    <ul id="recentCities"></ul>
+                    <ul id="recentCities" class="row col-md-12 mt-2"></ul>
                 </section>
             </aside>
-            <section id="currentWeather"  class="border border-primary border-3 col-md-9"></section>
-            <section id="fiveDayForecast"  class="border border-primary border-3 col-md-9">
-                <h1>5-Day Forecast: </h1>
-            </section>
+            <div class="col-md-9 row justify-content-center">
+                <section id="currentWeather"  class="border border-primary border-1 col-md-12 rounded ms-3 mt-1"></section>
+                <section id="fiveDayForecast"  class="col-md-12 row rounded ms-1 mt-1">
+                    <h1 class="col-md-12">5-Day Forecast: </h1>
+                </section>
+            </div>
         </div>
     </main>
     <!-- Bootstrap Bundle with Popper -->

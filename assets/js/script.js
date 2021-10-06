@@ -13,16 +13,20 @@ var searchBtn = document.getElementById("searchBtn");
 
 searchBtn.addEventListener("click", function(event){
     event.preventDefault();
-    console.log(recentSearches);
-    recentSearches.unshift(searchText.value);
-    localStorage.setItem("recents", JSON.stringify(recentSearches));
+    recentCities.innerHTML = "";
+
+    if(!recentSearches.includes(searchText.value)){
+        recentSearches.unshift(searchText.value);
+        localStorage.setItem("recents", JSON.stringify(recentSearches));
+    };
+    
     recentSearches.forEach(function(element) {
-        var citiesList = document.createElement("button", "li")
-        citiesList.innerText = `${recentSearches}`;
+        var citiesList = document.createElement("button")
+        citiesList.innerText = `${element}`;
+        citiesList.classList = "btn col-md-12 btn-secondary p-2 m-1";
         recentCities.append(citiesList);
     });
 
-// section html for recent searches, for every item in recent searches append p tag with item from recent searches.
     var currentURL = `https://api.openweathermap.org/data/2.5/weather?q=${searchText.value}&appid=${APIKey}&units=imperial`;
 
     fetch(currentURL)
@@ -36,14 +40,17 @@ searchBtn.addEventListener("click", function(event){
         .then(function(data){
             console.log(data);
             renderCurrentWeather(data);
-            for(let i=0; i< data.daily.length; i++){
+            fiveDayForecast.innerHTML = "";
+            for(let i=0; i<5; i++){
                 renderForecastWeather(data.daily[i]);
             }
         })
     })
+    searchText.value = "";
 });
 
 function renderCurrentWeather(weatherData){
+    currentWeather.innerHTML = "";
     var cityNameHeader = document.createElement("h1");
     var icon = document.createElement("img");
     var temp = document.createElement("p");
@@ -101,7 +108,7 @@ function renderForecastWeather(weatherData){
     humidityForecast.innerText = `Humidity: ${weatherData.humidity} %`;
     forecastCardDiv.append(humidityForecast);
 
-    forecastCardDiv.classList = "bg-success m-2 p-2 rounded";
+    forecastCardDiv.classList = "bg-dark text-light m-2 p-2 rounded w-auto";
     fiveDayForecast.append(forecastCardDiv);
 };
 
