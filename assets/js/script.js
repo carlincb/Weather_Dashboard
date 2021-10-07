@@ -23,7 +23,7 @@ searchBtn.addEventListener("click", function(event){
     recentSearches.forEach(function(element) {
         var citiesList = document.createElement("button")
         citiesList.innerText = `${element}`;
-        citiesList.classList = "btn col-md-12 btn-secondary p-2 m-1 fs-5";
+        citiesList.classList = "btn col-md-12 btn-secondary p-2 m-1 fs-5 cityButton";
         recentCities.append(citiesList);
     });
 
@@ -147,3 +147,27 @@ function convertDT (timestamp){
   // +' '+hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
   return convdataTime;
 };
+
+recentCities.addEventListener("click", function(event){
+    if(event.target.classList.contains("cityButton")){
+        var currentURL = `https://api.openweathermap.org/data/2.5/weather?q=${event.target.textContent}&appid=${APIKey}&units=imperial`;
+
+    fetch(currentURL)
+    .then((response)=>response.json())
+    .then(function(data){
+        console.log(data);
+        currentCity = data.name
+        var forecastURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&appid=${APIKey}&units=imperial`;
+        fetch(forecastURL)
+        .then((response)=>response.json())
+        .then(function(data){
+            console.log(data);
+            renderCurrentWeather(data);
+            fiveDayForecast.innerHTML = "";
+            for(let i=0; i<5; i++){
+                renderForecastWeather(data.daily[i]);
+            }
+        })
+    })
+    }
+})
