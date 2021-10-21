@@ -39,12 +39,6 @@ Although this is simply a webpage and no installation is necessary, there were c
     WHEN I click on a city in the search history
     THEN I am again presented with current and future conditions for that city
 
-## Mock-Up
-
-The following image shows the web application's appearance and functionality:
-
-![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for Atlanta.](assets/images/06-server-side-apis-homework-demo.png)
-
 ## Usage
 
 Please see below for examples of this webpage, which demonstrate its functionality:
@@ -53,23 +47,24 @@ Please see below for examples of this webpage, which demonstrate its functionali
 
 ![1](assets/images/1.png)
 
-###  Saved Local Storage View
+### Saved Local Storage View
 
 ![2](assets/images/2.png)
 
-
 ## Credits
-- https://getbootstrap.com/ 
+
+- https://getbootstrap.com/
 - https://fonts.google.com/
 - https://javascript.info/
 - https://du.bootcampcontent.com/denver-coding-bootcamp/du-den-virt-fsf-pt-08-2021-u-c/-/tree/master/06-Server-Side-APIs/02-Homework
 - https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
 
-
 ## License
+
 © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
 
 ## Links
+
 [Live Link](https://carlincb.github.io/Weather_Dashboard/)
 
 [GitHub Link](https://github.com/carlincb/Weather_Dashboard)
